@@ -62,25 +62,64 @@
         }
 
         .hero {
+            --move-x: 0px;
+            --move-y: 0px;
+
             min-height: 720px;
             padding: 145px 10% 80px;
             color: white;
             display: flex;
             align-items: center;
             gap: 70px;
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+            background: #041425;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: -35px;
+            z-index: 0;
             background:
                 linear-gradient(90deg,
-                    rgba(4, 20, 37, 0.88) 0%,
+                    rgba(4, 20, 37, 0.90) 0%,
                     rgba(4, 20, 37, 0.55) 48%,
-                    rgba(4, 20, 37, 0.12) 100%),
+                    rgba(4, 20, 37, 0.10) 100%),
                 url("assets/hero-background.png");
             background-size: cover;
             background-position: center;
+            transform: scale(1.06) translate(var(--move-x), var(--move-y));
+            transition: transform 0.45s ease-out;
+        }
 
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            background: radial-gradient(circle at 72% 45%, rgba(54, 204, 255, 0.18), transparent 34%);
+            animation: scientificGlow 7s ease-in-out infinite alternate;
+        }
+
+        @keyframes scientificGlow {
+            from {
+                opacity: 0.35;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 0.9;
+                transform: scale(1.18);
+            }
         }
 
         .hero-text {
             max-width: 720px;
+            position: relative;
+            z-index: 2;
         }
 
         .tag {
@@ -133,6 +172,8 @@
             padding: 9px;
             background: linear-gradient(135deg, #7be4ff, #1677c8, #ffffff);
             box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+            position: relative;
+            z-index: 2;
         }
 
         .profile-frame img {
@@ -303,7 +344,7 @@
         <h3>Researching the dynamic connections between Earth and space</h3>
 
         <p class="about-text">
-            I am a computational physicist and Earth–space interactions researcher.
+            I am a computational physicist and Earth-space interactions researcher.
             I completed my PhD in Space Science and Technology at the University of
             Trento and Fondazione Bruno Kessler, Italy. My work combines satellite
             observations, ionospheric physics, deep learning, anomaly detection, and
@@ -317,7 +358,7 @@
 
         <div class="grid">
             <div class="card">
-                <h4>Ionosphere–Earthquake Coupling</h4>
+                <h4>Ionosphere-Earthquake Coupling</h4>
                 <p>
                     Investigating possible statistical associations between ionospheric
                     electric-field perturbations and seismic activity using satellite observations.
@@ -359,7 +400,7 @@
             <h4>Short-Term Scientific Mission, COST Action FuSe</h4>
             <p>
                 Politehnica Bucharest, Romania · 2026<br>
-                Transformer-, diffusion-, and LoRA-based approaches for DEMETER ICE
+                Machine learning and computer vision approaches for DEMETER ICE
                 electric-field data and seismo-ionospheric anomaly detection.
             </p>
         </div>
@@ -377,7 +418,7 @@
             <h4>Integrated MSc Physics</h4>
             <p>
                 Amrita Vishwa Vidyapeetham, India · 2017–2022<br>
-                Master’s research at IIT Indore on coronal mass ejections, interplanetary
+                Master’s thesis research at IIT Indore on coronal mass ejections, interplanetary
                 sheaths, corotating interaction regions, and geomagnetic effects.
             </p>
         </div>
@@ -406,6 +447,24 @@
     <footer>
         © 2026 Dr Megha Babu · Space Physics & Machine Learning
     </footer>
+
+    <script>
+        const hero = document.querySelector(".hero");
+
+        hero.addEventListener("mousemove", (event) => {
+            const box = hero.getBoundingClientRect();
+            const x = (event.clientX - box.left) / box.width - 0.5;
+            const y = (event.clientY - box.top) / box.height - 0.5;
+
+            hero.style.setProperty("--move-x", `${x * -14}px`);
+            hero.style.setProperty("--move-y", `${y * -10}px`);
+        });
+
+        hero.addEventListener("mouseleave", () => {
+            hero.style.setProperty("--move-x", "0px");
+            hero.style.setProperty("--move-y", "0px");
+        });
+    </script>
 
 </body>
 
