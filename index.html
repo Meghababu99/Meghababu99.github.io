@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dr Megha Babu | Space Physics & Machine Learning</title>
+
+    <style>
+        :root {
+            --navy: #071c35;
+            --blue: #1677c8;
+            --sky: #46b9e8;
+            --ink: #1e293b;
+            --muted: #5b6778;
+            --white: #ffffff;
+            --soft: #f4f8fc;
+        }
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            color: var(--ink);
+            background: var(--soft);
+            line-height: 1.7;
+        }
+
+        nav {
+            position: fixed;
+            z-index: 10;
+            top: 0;
+            width: 100%;
+            background: rgba(7, 28, 53, 0.94);
+            padding: 14px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        nav .name {
+            color: white;
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 18px;
+            font-size: 0.92rem;
+        }
+
+        nav a:hover {
+            color: var(--sky);
+        }
+
+        .hero {
+            min-height: 720px;
+            padding: 145px 10% 80px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 70px;
+            background:
+                radial-gradient(circle at 78% 28%, rgba(70, 185, 232, 0.42), transparent 18%),
+                radial-gradient(circle at 20% 80%, rgba(22, 119, 200, 0.38), transparent 25%),
+                linear-gradient(135deg, #041425, #0b3766 58%, #071c35);
+        }
+
+        .hero-text {
+            max-width: 720px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 7px 14px;
+            border: 1px solid #7bd7fb;
+            border-radius: 22px;
+            color: #bfeeff;
+            font-size: 0.86rem;
+            letter-spacing: 0.4px;
+        }
+
+        h1 {
+            font-size: clamp(2.8rem, 5vw, 4.8rem);
+            line-height: 1.08;
+            margin: 18px 0;
+        }
+
+        .hero h2 {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: #cceeff;
+            max-width: 660px;
+        }
+
+        .button {
+            display: inline-block;
+            margin: 20px 12px 0 0;
+            padding: 12px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .button-primary {
+            background: #42b9e8;
+            color: #06213d;
+        }
+
+        .button-outline {
+            border: 1px solid white;
+            color: white;
+        }
+
+        .profile-frame {
+            width: 275px;
+            height: 275px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            padding: 9px;
+            background: linear-gradient(135deg, #7be4ff, #1677c8, #ffffff);
+            box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+        }
+
+        .profile-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            background: #d6e6f3;
+        }
+
+        section {
+            max-width: 1120px;
+            margin: auto;
+            padding: 85px 25px;
+        }
+
+        .section-label {
+            color: var(--blue);
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        h3 {
+            font-size: 2rem;
+            margin: 5px 0 22px;
+            color: var(--navy);
+        }
+
+        .about-text {
+            max-width: 880px;
+            font-size: 1.08rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 28px;
+            border-radius: 12px;
+            box-shadow: 0 6px 22px rgba(27, 61, 94, 0.10);
+            border-top: 4px solid var(--blue);
+        }
+
+        .card h4 {
+            margin: 0 0 10px;
+            color: var(--navy);
+            font-size: 1.14rem;
+        }
+
+        .card p {
+            color: var(--muted);
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            background: #eaf6fd;
+        }
+
+        .timeline-item {
+            background: white;
+            margin: 18px 0;
+            padding: 22px 25px;
+            border-left: 5px solid var(--blue);
+            border-radius: 0 10px 10px 0;
+        }
+
+        .timeline-item h4 {
+            margin: 0;
+            color: var(--navy);
+        }
+
+        .timeline-item p {
+            margin: 7px 0 0;
+            color: var(--muted);
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #071c35, #0d4b83);
+            color: white;
+            border-radius: 14px;
+            text-align: center;
+            padding: 60px 25px;
+        }
+
+        .contact-box h3 {
+            color: white;
+        }
+
+        .contact-box a {
+            color: #8de4ff;
+            text-decoration: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 28px;
+            color: #667085;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 800px) {
+            nav {
+                padding: 12px 5%;
+            }
+
+            nav .links {
+                display: none;
+            }
+
+            .hero {
+                padding: 130px 9% 70px;
+                min-height: auto;
+                flex-direction: column-reverse;
+                gap: 35px;
+            }
+
+            .profile-frame {
+                width: 210px;
+                height: 210px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="name">Dr Megha Babu</div>
+        <div class="links">
+            <a href="#about">About</a>
+            <a href="#research">Research</a>
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-text">
+            <span class="tag">SPACE PHYSICS • MACHINE LEARNING • EARTH SYSTEM SCIENCE</span>
+            <h1>Dr Megha Babu</h1>
+            <h2>
+                Computational physicist investigating Earth–space interactions through
+                satellite observations, signal processing, and trustworthy machine learning.
+            </h2>
+
+            <a class="button button-primary" href="#research">Explore My Research</a>
+            <a class="button button-outline" href="assets/cv.pdf" target="_blank">Download CV</a>
+        </div>
+
+        <div class="profile-frame">
+            <img src="assets/profile.jpg" alt="Portrait of Dr Megha Babu">
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="section-label">About me</div>
+        <h3>Researching the dynamic connections between Earth and space</h3>
+
+        <p class="about-text">
+            I am a computational physicist and Earth–space interactions researcher.
+            I completed my PhD in Space Science and Technology at the University of
+            Trento and Fondazione Bruno Kessler, Italy. My work combines satellite
+            observations, ionospheric physics, deep learning, anomaly detection, and
+            rigorous statistical validation to investigate transient geophysical phenomena.
+        </p>
+    </section>
+
+    <section id="research" class="highlight">
+        <div class="section-label">Research focus</div>
+        <h3>Current research directions</h3>
+
+        <div class="grid">
+            <div class="card">
+                <h4>Ionosphere–Earthquake Coupling</h4>
+                <p>
+                    Investigating possible statistical associations between ionospheric
+                    electric-field perturbations and seismic activity using satellite observations.
+                </p>
+            </div>
+
+            <div class="card">
+                <h4>Machine Learning for Geophysics</h4>
+                <p>
+                    Developing anomaly-detection and deep-learning models for multivariate
+                    time series and ionospheric spectrogram data.
+                </p>
+            </div>
+
+            <div class="card">
+                <h4>Space Weather & Solar-Terrestrial Physics</h4>
+                <p>
+                    Studying solar-wind disturbances, coronal mass ejections, and their
+                    impacts on Earth’s magnetosphere and upper atmosphere.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="section-label">Academic journey</div>
+        <h3>Research experience</h3>
+
+        <div class="timeline-item">
+            <h4>PhD in Space Science and Technology</h4>
+            <p>
+                University of Trento & Fondazione Bruno Kessler, Italy · 2022–2026<br>
+                Deep-learning-based anomaly detection in ionospheric observational data
+                and statistical association with seismic activity.
+            </p>
+        </div>
+
+        <div class="timeline-item">
+            <h4>Short-Term Scientific Mission, COST Action FuSe</h4>
+            <p>
+                Politehnica Bucharest, Romania · 2026<br>
+                Transformer-, diffusion-, and LoRA-based approaches for DEMETER ICE
+                electric-field data and seismo-ionospheric anomaly detection.
+            </p>
+        </div>
+
+        <div class="timeline-item">
+            <h4>Research Internship, National Observatory of Athens</h4>
+            <p>
+                Greece · 2025<br>
+                Collaborative research on ionospheric variability and multi-instrumental
+                approaches to seismo-ionospheric phenomena.
+            </p>
+        </div>
+
+        <div class="timeline-item">
+            <h4>Integrated MSc Physics</h4>
+            <p>
+                Amrita Vishwa Vidyapeetham, India · 2017–2022<br>
+                Master’s research at IIT Indore on coronal mass ejections, interplanetary
+                sheaths, corotating interaction regions, and geomagnetic effects.
+            </p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-box">
+            <div class="section-label" style="color:#8de4ff">Get in touch</div>
+            <h3>Let’s connect for research and collaboration</h3>
+            <p>
+                <a href="mailto:meghababu.kaniyath@gmail.com">
+                    meghababu.kaniyath@gmail.com
+                </a>
+            </p>
+
+            <!-- Replace # with your own profile links -->
+            <p>
+                <a href="#">LinkedIn</a> &nbsp; | &nbsp;
+                <a href="#">Google Scholar</a> &nbsp; | &nbsp;
+                <a href="#">ORCID</a> &nbsp; | &nbsp;
+                <a href="#">GitHub</a>
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        © 2026 Dr Megha Babu · Space Physics & Machine Learning
+    </footer>
+
+</body>
+
+</html>
