@@ -62,206 +62,25 @@
         }
 
         .hero {
-            --move-x: 0px;
-            --move-y: 0px;
-
             min-height: 720px;
             padding: 145px 10% 80px;
             color: white;
             display: flex;
             align-items: center;
             gap: 70px;
-            position: relative;
-            overflow: hidden;
-            isolation: isolate;
-            background: #041425;
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            inset: -35px;
-            z-index: 0;
             background:
                 linear-gradient(90deg,
-                    rgba(4, 20, 37, 0.96) 0%,
-                    rgba(4, 20, 37, 0.68) 46%,
-                    rgba(4, 20, 37, 0.28) 100%),
-                radial-gradient(ellipse at 78% 52%, rgba(19, 123, 190, 0.35), transparent 35%),
-                radial-gradient(circle at 84% 25%, rgba(129, 224, 255, 0.40) 0 1px, transparent 2px),
-                radial-gradient(circle at 66% 14%, rgba(255, 255, 255, 0.58) 0 1px, transparent 2px),
-                radial-gradient(circle at 90% 68%, rgba(255, 255, 255, 0.42) 0 1px, transparent 2px),
-                linear-gradient(135deg, #020b18 0%, #041a34 57%, #063461 100%);
-            background-size: cover, cover, 110px 110px, 155px 155px, 185px 185px, cover;
+                    rgba(4, 20, 37, 0.88) 0%,
+                    rgba(4, 20, 37, 0.55) 48%,
+                    rgba(4, 20, 37, 0.12) 100%),
+                url("assets/hero-background.png");
+            background-size: cover;
             background-position: center;
-            transform: scale(1.06) translate(var(--move-x), var(--move-y));
-            transition: transform 0.45s ease-out;
-        }
 
-        .hero::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-            pointer-events: none;
-            background: radial-gradient(circle at 72% 45%, rgba(54, 204, 255, 0.18), transparent 34%);
-            animation: scientificGlow 7s ease-in-out infinite alternate;
-        }
-
-        .space-scene,
-        .fibonacci-spiral,
-        .orbit-path,
-        .satellite,
-        .earth {
-            position: absolute;
-            pointer-events: none;
-        }
-
-        .space-scene {
-            inset: 0;
-            z-index: 1;
-            overflow: hidden;
-        }
-
-        .fibonacci-spiral {
-            width: 670px;
-            height: 670px;
-            right: -86px;
-            top: 50%;
-            transform: translateY(-50%);
-            opacity: 0.38;
-            animation: spiralDrift 22s linear infinite;
-        }
-
-        .orbit-path {
-            width: 600px;
-            height: 300px;
-            right: -23px;
-            top: 51%;
-            transform: translateY(-50%) rotate(-23deg);
-            border: 1px solid rgba(128, 230, 255, 0.55);
-            border-radius: 50%;
-            box-shadow: 0 0 18px rgba(48, 200, 255, 0.16);
-        }
-
-        .earth {
-            width: 330px;
-            height: 330px;
-            right: 75px;
-            top: 51%;
-            transform: translateY(-50%);
-            border-radius: 50%;
-            background:
-                radial-gradient(circle at 35% 29%, rgba(184, 246, 255, 0.92) 0 2%, transparent 8%),
-                radial-gradient(ellipse at 33% 43%, #3aaeb9 0 9%, transparent 10%),
-                radial-gradient(ellipse at 55% 66%, #32a277 0 10%, transparent 11%),
-                radial-gradient(ellipse at 70% 36%, #53b979 0 7%, transparent 8%),
-                radial-gradient(circle at 33% 28%, #269bd0 0%, #07599c 48%, #032a61 72%, #011530 100%);
-            box-shadow: inset -38px -22px 52px rgba(0, 5, 25, 0.86), inset 13px 8px 32px rgba(103, 237, 255, 0.42), 0 0 58px rgba(23, 178, 241, 0.34);
-            animation: earthFloat 8s ease-in-out infinite alternate;
-        }
-
-        .earth::after {
-            content: "";
-            position: absolute;
-            inset: -9px;
-            border: 1px solid rgba(130, 230, 255, 0.34);
-            border-radius: 50%;
-            filter: blur(1px);
-        }
-
-        .satellite {
-            width: 26px;
-            height: 15px;
-            right: 102px;
-            top: 23%;
-            z-index: 2;
-            background: linear-gradient(90deg, #d9f8ff 0 36%, #7ccce7 37% 56%, #d7f4ff 57% 100%);
-            border-radius: 3px;
-            box-shadow: -26px 1px 0 -5px #246b98, 26px 1px 0 -5px #246b98, 0 0 13px rgba(196, 246, 255, 0.95);
-            animation: satelliteOrbit 12s ease-in-out infinite;
-        }
-
-        .satellite::before,
-        .satellite::after {
-            content: "";
-            position: absolute;
-            top: 4px;
-            width: 24px;
-            height: 7px;
-            background: repeating-linear-gradient(90deg, #1d6696 0 4px, #75c9ea 4px 5px);
-        }
-
-        .satellite::before {
-            right: 100%;
-            margin-right: 4px;
-        }
-
-        .satellite::after {
-            left: 100%;
-            margin-left: 4px;
-        }
-
-        @keyframes spiralDrift {
-            from {
-                transform: translateY(-50%) rotate(0deg) scale(0.98);
-            }
-
-            to {
-                transform: translateY(-50%) rotate(360deg) scale(1.04);
-            }
-        }
-
-        @keyframes satelliteOrbit {
-
-            0%,
-            100% {
-                transform: translate(0, 0) rotate(-10deg);
-                opacity: 0.84;
-            }
-
-            25% {
-                transform: translate(-182px, 82px) rotate(-26deg);
-                opacity: 1;
-            }
-
-            50% {
-                transform: translate(-295px, 244px) rotate(-5deg);
-                opacity: 0.88;
-            }
-
-            75% {
-                transform: translate(-120px, 345px) rotate(19deg);
-                opacity: 0.96;
-            }
-        }
-
-        @keyframes earthFloat {
-            from {
-                transform: translateY(-50%) translate(0, -7px) rotate(-3deg);
-            }
-
-            to {
-                transform: translateY(-50%) translate(-7px, 9px) rotate(3deg);
-            }
-        }
-
-        @keyframes scientificGlow {
-            from {
-                opacity: 0.35;
-                transform: scale(0.9);
-            }
-
-            to {
-                opacity: 0.9;
-                transform: scale(1.18);
-            }
         }
 
         .hero-text {
             max-width: 720px;
-            position: relative;
-            z-index: 2;
         }
 
         .tag {
@@ -314,8 +133,6 @@
             padding: 9px;
             background: linear-gradient(135deg, #7be4ff, #1677c8, #ffffff);
             box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
-            position: relative;
-            z-index: 2;
         }
 
         .profile-frame img {
@@ -444,38 +261,8 @@
                 height: 210px;
             }
 
-            .earth {
-                width: 225px;
-                height: 225px;
-                right: -42px;
-                top: 33%;
-                opacity: 0.65;
-            }
-
-            .fibonacci-spiral {
-                width: 470px;
-                height: 470px;
-                right: -150px;
-                top: 35%;
-            }
-
-            .orbit-path,
-            .satellite {
-                opacity: 0.55;
-            }
-
             .grid {
                 grid-template-columns: 1fr;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-
-            .hero::after,
-            .fibonacci-spiral,
-            .earth,
-            .satellite {
-                animation: none;
             }
         }
     </style>
@@ -494,27 +281,6 @@
     </nav>
 
     <header class="hero">
-        <div class="space-scene" aria-hidden="true">
-            <svg class="fibonacci-spiral" viewBox="0 0 700 700" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g stroke="#82e8ff" stroke-width="2">
-                    <path
-                        d="M350 350 C350 285 440 285 440 350 C440 440 320 440 320 350 C320 195 530 195 530 350 C530 560 245 560 245 350 C245 120 620 120 620 350 C620 650 155 650 155 350 C155 35 700 35 700 350" />
-                    <path
-                        d="M350 350 C415 350 415 440 350 440 C260 440 260 320 350 320 C505 320 505 530 350 530 C140 530 140 245 350 245 C580 245 580 620 350 620 C50 620 50 155 350 155"
-                        opacity="0.58" />
-                    <path d="M350 350 L440 350 L440 440 L320 440 L320 245 L530 245 L530 530 L155 530 L155 120 L620 120"
-                        opacity="0.38" />
-                </g>
-                <g fill="#d1f8ff" font-family="Segoe UI, sans-serif" font-size="15" letter-spacing="2" opacity="0.78">
-                    <text x="365" y="340">1</text><text x="450" y="342">1</text><text x="450" y="455">2</text>
-                    <text x="300" y="455">3</text><text x="300" y="228">5</text><text x="545" y="228">8</text>
-                    <text x="545" y="548">13</text><text x="130" y="548">21</text><text x="130" y="103">34</text>
-                </g>
-            </svg>
-            <div class="orbit-path"></div>
-            <div class="earth"></div>
-            <div class="satellite"></div>
-        </div>
         <div class="hero-text">
             <span class="tag">SPACE PHYSICS • MACHINE LEARNING • EARTH SYSTEM SCIENCE</span>
             <h1>Dr Megha Babu</h1>
@@ -537,7 +303,7 @@
         <h3>Researching the dynamic connections between Earth and space</h3>
 
         <p class="about-text">
-            I am a computational physicist and Earth-space interactions researcher.
+            I am a computational physicist and Earth–space interactions researcher.
             I completed my PhD in Space Science and Technology at the University of
             Trento and Fondazione Bruno Kessler, Italy. My work combines satellite
             observations, ionospheric physics, deep learning, anomaly detection, and
@@ -551,7 +317,7 @@
 
         <div class="grid">
             <div class="card">
-                <h4>Ionosphere-Earthquake Coupling</h4>
+                <h4>Ionosphere–Earthquake Coupling</h4>
                 <p>
                     Investigating possible statistical associations between ionospheric
                     electric-field perturbations and seismic activity using satellite observations.
@@ -593,7 +359,7 @@
             <h4>Short-Term Scientific Mission, COST Action FuSe</h4>
             <p>
                 Politehnica Bucharest, Romania · 2026<br>
-                Machine learning and computer vision approaches for DEMETER ICE
+                Transformer-, diffusion-, and LoRA-based approaches for DEMETER ICE
                 electric-field data and seismo-ionospheric anomaly detection.
             </p>
         </div>
@@ -611,7 +377,7 @@
             <h4>Integrated MSc Physics</h4>
             <p>
                 Amrita Vishwa Vidyapeetham, India · 2017–2022<br>
-                Master’s thesis research at IIT Indore on coronal mass ejections, interplanetary
+                Master’s research at IIT Indore on coronal mass ejections, interplanetary
                 sheaths, corotating interaction regions, and geomagnetic effects.
             </p>
         </div>
@@ -640,24 +406,6 @@
     <footer>
         © 2026 Dr Megha Babu · Space Physics & Machine Learning
     </footer>
-
-    <script>
-        const hero = document.querySelector(".hero");
-
-        hero.addEventListener("mousemove", (event) => {
-            const box = hero.getBoundingClientRect();
-            const x = (event.clientX - box.left) / box.width - 0.5;
-            const y = (event.clientY - box.top) / box.height - 0.5;
-
-            hero.style.setProperty("--move-x", `${x * -14}px`);
-            hero.style.setProperty("--move-y", `${y * -10}px`);
-        });
-
-        hero.addEventListener("mouseleave", () => {
-            hero.style.setProperty("--move-x", "0px");
-            hero.style.setProperty("--move-y", "0px");
-        });
-    </script>
 
 </body>
 
