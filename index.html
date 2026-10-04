@@ -198,6 +198,47 @@
             background: #eaf6fd;
         }
 
+        .mentoring-layout {
+            display: grid;
+            grid-template-columns: 1.25fr 0.75fr;
+            gap: 28px;
+            align-items: start;
+        }
+
+        .mentoring-panel {
+            background: #eaf6fd;
+            padding: 28px;
+            border-radius: 12px;
+            border-left: 4px solid var(--blue);
+        }
+
+        .mentoring-panel h4 {
+            margin: 0 0 12px;
+            color: var(--navy);
+            font-size: 1.14rem;
+        }
+
+        .mentoring-panel p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .mentoring-list {
+            margin: 14px 0 0;
+            padding-left: 20px;
+            color: var(--muted);
+        }
+
+        .mentoring-list li {
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 800px) {
+            .mentoring-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .timeline-item {
             background: white;
             margin: 18px 0;
@@ -275,6 +316,7 @@
         <div class="links">
             <a href="#about">About</a>
             <a href="#research">Research</a>
+            <a href="#mentoring">Mentoring</a>
             <a href="#experience">Experience</a>
             <a href="#contact">Contact</a>
         </div>
@@ -341,7 +383,48 @@
             </div>
         </div>
     </section>
+    <section id="mentoring">
+        <div class="section-label">Research, Mentoring & Outreach</div>
+        <h3>Making scientific thinking more accessible</h3>
 
+        <div class="mentoring-layout">
+            <div>
+                <p class="about-text">
+                    Alongside my research, I am increasingly interested in research education and mentoring. I believe
+                    that one of the biggest barriers for students entering research is not a lack of ability, but that
+                    research is often introduced too late and made unnecessarily difficult to understand.
+                </p>
+
+                <p class="about-text">
+                    Through Solvix Research Hub, I work to make scientific thinking and the research process more
+                    accessible to school students, university students, aspiring PhD researchers, and early-career
+                    researchers. My approach draws on my own ongoing journey through doctoral training, collaborations,
+                    publications, applications, and academic life.
+                </p>
+
+                <p class="about-text">
+                    Research should not feel like a secret language accessible only after entering a PhD. Scientific
+                    thinking can begin much earlier.
+                </p>
+            </div>
+
+            <aside class="mentoring-panel">
+                <h4>Areas I support</h4>
+                <ul class="mentoring-list">
+                    <li>Scientific thinking and research questions</li>
+                    <li>Understanding scientific literature</li>
+                    <li>Research methodology and academic writing</li>
+                    <li>Research presentations and PhD preparation</li>
+                    <li>Responsible use of AI and computational tools</li>
+                </ul>
+
+                <h4 style="margin-top: 24px;">For younger learners</h4>
+                <p>
+                    Curiosity, observation, questioning, evidence, experimentation, and learning how scientists think.
+                </p>
+            </aside>
+        </div>
+    </section>
     <section id="experience">
         <div class="section-label">Academic journey</div>
         <h3>Research experience</h3>
