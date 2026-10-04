@@ -239,6 +239,66 @@
             }
         }
 
+        .initiatives-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        .initiative-card {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            padding: 28px;
+            background: white;
+            border-radius: 12px;
+            border-top: 4px solid var(--blue);
+            box-shadow: 0 6px 22px rgba(27, 61, 94, 0.10);
+            color: var(--ink);
+            text-decoration: none;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .initiative-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(27, 61, 94, 0.18);
+        }
+
+        .initiative-card img {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .initiative-card h4 {
+            margin: 0 0 8px;
+            color: var(--navy);
+            font-size: 1.2rem;
+        }
+
+        .initiative-card p {
+            margin: 0 0 10px;
+            color: var(--muted);
+        }
+
+        .initiative-card span {
+            color: var(--blue);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 800px) {
+            .initiatives-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .initiative-card {
+                align-items: flex-start;
+            }
+        }
+
         .timeline-item {
             background: white;
             margin: 18px 0;
@@ -317,6 +377,7 @@
             <a href="#about">About</a>
             <a href="#research">Research</a>
             <a href="#mentoring">Mentoring</a>
+            <a href="#initiatives">Initiatives</a>
             <a href="#experience">Experience</a>
             <a href="#contact">Contact</a>
         </div>
@@ -423,6 +484,41 @@
                     Curiosity, observation, questioning, evidence, experimentation, and learning how scientists think.
                 </p>
             </aside>
+        </div>
+    </section>
+    <section id="initiatives" class="highlight">
+        <div class="section-label">Initiatives</div>
+        <h3>Research and education beyond the laboratory</h3>
+
+        <div class="initiatives-grid">
+
+            <a class="initiative-card" href="https://solvixlearning.com" target="_blank" rel="noopener">
+                <img src="assets/solvix-learning-logo.png" alt="Solvix Learning logo">
+
+                <div>
+                    <h4>Solvix Learning</h4>
+                    <p>
+                        An education-focused initiative supporting curiosity, scientific
+                        understanding, and accessible learning in science, mathematics,
+                        astronomy, and research.
+                    </p>
+                    <span>Visit solvixlearning.com</span>
+                </div>
+            </a>
+
+            <a class="initiative-card" href="https://researchhub.solvixlearning.com" target="_blank" rel="noopener">
+                <img src="assets/research-hub-logo.png" alt="Solvix Research Hub logo">
+
+                <div>
+                    <h4>Solvix Research Hub</h4>
+                    <p>
+                        A platform for research guidance, scientific writing, PhD preparation,
+                        responsible AI use, and support for aspiring and early-career researchers.
+                    </p>
+                    <span>Visit researchhub.solvixlearning.com</span>
+                </div>
+            </a>
+
         </div>
     </section>
     <section id="experience">
