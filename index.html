@@ -1,495 +1,112 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta name="google-site-verification" content="y0YKpes5Qpapa4MBcUblprmU6reYDgLsOxX5TMehWLs" />
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Dr Megha Babu | Space Physics & Machine Learning</title>
-
-    <style>
-        :root {
-            --navy: #071c35;
-            --blue: #1677c8;
-            --sky: #46b9e8;
-            --ink: #1e293b;
-            --muted: #5b6778;
-            --white: #ffffff;
-            --soft: #f4f8fc;
-        }
-
-        * {
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-            font-family: "Segoe UI", Arial, sans-serif;
-            color: var(--ink);
-            background: var(--soft);
-            line-height: 1.7;
-        }
-
-        nav {
-            position: fixed;
-            z-index: 10;
-            top: 0;
-            width: 100%;
-            background: rgba(7, 28, 53, 0.94);
-            padding: 14px 8%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        nav .name {
-            color: white;
-            font-weight: 700;
-            font-size: 1.05rem;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 18px;
-            font-size: 0.92rem;
-        }
-
-        nav a:hover {
-            color: var(--sky);
-        }
-
-        .hero {
-            min-height: 720px;
-            padding: 145px 10% 80px;
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 70px;
-            background:
-                linear-gradient(90deg,
-                    rgba(4, 20, 37, 0.88) 0%,
-                    rgba(4, 20, 37, 0.55) 48%,
-                    rgba(4, 20, 37, 0.12) 100%),
-                url("assets/hero-background.png");
-            background-size: cover;
-            background-position: center;
-
-        }
-
-        .hero-text {
-            max-width: 720px;
-        }
-
-        .tag {
-            display: inline-block;
-            padding: 7px 14px;
-            border: 1px solid #7bd7fb;
-            border-radius: 22px;
-            color: #bfeeff;
-            font-size: 0.86rem;
-            letter-spacing: 0.4px;
-        }
-
-        h1 {
-            font-size: clamp(2.8rem, 5vw, 4.8rem);
-            line-height: 1.08;
-            margin: 18px 0;
-        }
-
-        .hero h2 {
-            font-size: 1.25rem;
-            font-weight: 400;
-            color: #cceeff;
-            max-width: 660px;
-        }
-
-        .button {
-            display: inline-block;
-            margin: 20px 12px 0 0;
-            padding: 12px 20px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .button-primary {
-            background: #42b9e8;
-            color: #06213d;
-        }
-
-        .button-outline {
-            border: 1px solid white;
-            color: white;
-        }
-
-        .profile-frame {
-            width: 275px;
-            height: 275px;
-            flex-shrink: 0;
-            border-radius: 50%;
-            padding: 9px;
-            background: linear-gradient(135deg, #7be4ff, #1677c8, #ffffff);
-            box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
-        }
-
-        .profile-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-            background: #d6e6f3;
-        }
-
-        section {
-            max-width: 1120px;
-            margin: auto;
-            padding: 85px 25px;
-        }
-
-        .section-label {
-            color: var(--blue);
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-        }
-
-        h3 {
-            font-size: 2rem;
-            margin: 5px 0 22px;
-            color: var(--navy);
-        }
-
-        .about-text {
-            max-width: 880px;
-            font-size: 1.08rem;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
-            margin-top: 30px;
-        }
-
-        .card {
-            background: white;
-            padding: 28px;
-            border-radius: 12px;
-            box-shadow: 0 6px 22px rgba(27, 61, 94, 0.10);
-            border-top: 4px solid var(--blue);
-        }
-
-        .card h4 {
-            margin: 0 0 10px;
-            color: var(--navy);
-            font-size: 1.14rem;
-        }
-
-        .card p {
-            color: var(--muted);
-            margin-bottom: 0;
-        }
-
-        .highlight {
-            background: #eaf6fd;
-        }
-
-        .mentoring-layout {
-            display: grid;
-            grid-template-columns: 1.25fr 0.75fr;
-            gap: 28px;
-            align-items: start;
-        }
-
-        .mentoring-panel {
-            background: #eaf6fd;
-            padding: 28px;
-            border-radius: 12px;
-            border-left: 4px solid var(--blue);
-        }
-
-        .mentoring-panel h4 {
-            margin: 0 0 12px;
-            color: var(--navy);
-            font-size: 1.14rem;
-        }
-
-        .mentoring-panel p {
-            margin: 0;
-            color: var(--muted);
-        }
-
-        .mentoring-list {
-            margin: 14px 0 0;
-            padding-left: 20px;
-            color: var(--muted);
-        }
-
-        .mentoring-list li {
-            margin-bottom: 8px;
-        }
-
-        @media (max-width: 800px) {
-            .mentoring-layout {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .timeline-item {
-            background: white;
-            margin: 18px 0;
-            padding: 22px 25px;
-            border-left: 5px solid var(--blue);
-            border-radius: 0 10px 10px 0;
-        }
-
-        .timeline-item h4 {
-            margin: 0;
-            color: var(--navy);
-        }
-
-        .timeline-item p {
-            margin: 7px 0 0;
-            color: var(--muted);
-        }
-
-        .contact-box {
-            background: linear-gradient(135deg, #071c35, #0d4b83);
-            color: white;
-            border-radius: 14px;
-            text-align: center;
-            padding: 60px 25px;
-        }
-
-        .contact-box h3 {
-            color: white;
-        }
-
-        .contact-box a {
-            color: #8de4ff;
-            text-decoration: none;
-        }
-
-        footer {
-            text-align: center;
-            padding: 28px;
-            color: #667085;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 800px) {
-            nav {
-                padding: 12px 5%;
-            }
-
-            nav .links {
-                display: none;
-            }
-
-            .hero {
-                padding: 130px 9% 70px;
-                min-height: auto;
-                flex-direction: column-reverse;
-                gap: 35px;
-            }
-
-            .profile-frame {
-                width: 210px;
-                height: 210px;
-            }
-
-            .grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  <meta name="google-site-verification" content="y0YKpes5Qpapa4MBcUblprmU6reYDgLsOxX5TMehWLs">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#091a31">
+  <meta name="description" content="Dr Megha Babu is a space science researcher working across ionospheric physics, satellite data, signal processing and machine learning.">
+  <title>Dr Megha Babu — Space Science, Data & Discovery</title>
+  <style>
+    :root{--night:#091a31;--navy:#102c50;--blue:#266ed0;--cyan:#76d7e8;--gold:#f2bd63;--paper:#f6f7f4;--ink:#18263a;--muted:#5e6b7b;--white:#fff;--line:rgba(18,43,75,.13);--serif:Georgia,"Times New Roman",serif;--sans:Inter,"Segoe UI",Arial,sans-serif;--max:1160px}
+    *{box-sizing:border-box;scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.7 var(--sans);-webkit-font-smoothing:antialiased}
+    a{color:inherit}button{font:inherit}.skip-link{position:absolute;top:-60px;left:1rem;background:#fff;padding:.6rem 1rem;z-index:99}.skip-link:focus{top:1rem}
+    .topbar{position:fixed;inset:0 0 auto;z-index:30;padding:0 max(5vw,calc((100vw - 1320px)/2));height:76px;display:flex;align-items:center;justify-content:space-between;color:#fff;background:rgba(8,24,45,.72);border-bottom:1px solid rgba(255,255,255,.1);backdrop-filter:blur(16px);transition:background .25s,box-shadow .25s}
+    .topbar.scrolled{background:rgba(8,24,45,.96);box-shadow:0 8px 30px #07152b24}.brand{display:flex;align-items:center;gap:.72rem;text-decoration:none;font-weight:700;letter-spacing:.01em}.brand-mark{width:34px;height:34px;border:1px solid #83d9e4;border-radius:50%;position:relative;display:grid;place-items:center;color:var(--gold);font:italic 1.1rem var(--serif)}.brand-mark:after{content:"";position:absolute;width:43px;height:17px;border:1px solid var(--gold);border-radius:50%;transform:rotate(-35deg)}
+    .nav-links{display:flex;align-items:center;gap:1.6rem}.nav-links a{font-size:.88rem;text-decoration:none;color:#dbe7f2;transition:color .2s}.nav-links a:hover,.nav-links a:focus-visible{color:var(--gold)}.nav-links .nav-contact{padding:.62rem 1.05rem;border:1px solid #9bcbd8;border-radius:99px;color:#fff}.menu-toggle{display:none;background:none;color:#fff;border:1px solid #ffffff50;border-radius:10px;padding:.46rem .65rem;cursor:pointer}
+    .hero{min-height:760px;position:relative;overflow:hidden;color:#fff;display:flex;align-items:center;padding:132px max(7vw,calc((100vw - 1180px)/2)) 86px;background:radial-gradient(ellipse at 75% 48%,#1d4970 0%,#102b4c 30%,#091a31 68%)}.hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(155,208,226,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(155,208,226,.055) 1px,transparent 1px);background-size:56px 56px;mask-image:linear-gradient(90deg,transparent,#000 65%);pointer-events:none}.hero:after{content:"";position:absolute;width:600px;height:600px;border:1px solid rgba(132,203,225,.12);border-radius:50%;right:-240px;top:-300px;box-shadow:0 0 0 65px rgba(132,203,225,.025),0 0 0 130px rgba(132,203,225,.02);pointer-events:none}
+    .hero-inner{width:100%;max-width:var(--max);margin:auto;display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:3rem;position:relative;z-index:1}.hero-copy{max-width:650px}.eyebrow{display:inline-flex;gap:.7rem;align-items:center;color:#aee8ed;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700}.eyebrow:before{content:"";width:32px;height:1px;background:var(--gold)}h1{font-size:clamp(3.1rem,6.2vw,5.8rem);line-height:.99;letter-spacing:-.055em;margin:1.15rem 0 1.2rem;font-weight:650}.hero h1 span{display:block;color:#93d7df;font:italic .78em var(--serif);letter-spacing:-.04em;margin-top:.12em}.hero-intro{max-width:590px;font-size:1.1rem;color:#d4dfeb;margin:0}.hero-meta{margin-top:1.4rem;color:#a9bbce;font-size:.88rem}.hero-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}.button{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;padding:.83rem 1.12rem;border:1px solid transparent;border-radius:6px;text-decoration:none;font-weight:700;font-size:.91rem;transition:transform .22s,background .22s,border-color .22s,box-shadow .22s}.button:hover{transform:translateY(-3px)}.button-primary{background:var(--gold);color:#14243b;box-shadow:0 8px 24px #f2bd6330}.button-primary:hover{background:#ffd486;box-shadow:0 12px 28px #f2bd6340}.button-quiet{border-color:#ffffff50;color:#fff;background:#ffffff08}.button-quiet:hover{border-color:#a5dce4;background:#ffffff12}.arrow{font-size:1.2em;line-height:0}
+    .hero-art{height:500px;position:relative;display:grid;place-items:center;isolation:isolate;perspective:900px}.orbit{position:absolute;border:1px solid rgba(132,216,229,.42);border-radius:50%;width:min(39vw,440px);height:min(22vw,252px);transform:rotate(-31deg);transition:transform .5s cubic-bezier(.2,.8,.2,1)}.orbit-two{width:min(46vw,520px);height:min(28vw,320px);transform:rotate(54deg);border-color:rgba(242,189,99,.55)}.orbit-three{width:min(32vw,360px);height:min(32vw,360px);transform:rotate(0);border-style:dashed;border-color:#a1cce34a}.hero-art:hover .orbit-one{transform:rotate(-23deg) scale(1.04)}.hero-art:hover .orbit-two{transform:rotate(62deg) scale(1.03)}.portrait-shell{width:clamp(225px,25vw,310px);height:clamp(290px,32vw,390px);position:relative;overflow:hidden;border-radius:48% 48% 42% 42%/38% 38% 30% 30%;background:linear-gradient(145deg,#9ac9d2,#e3cfae 48%,#294d70);padding:8px;box-shadow:0 24px 80px #030b1680;transform:translateZ(20px);transition:transform .35s,filter .35s}.portrait-shell:before{content:"";position:absolute;inset:8px;border:1px solid #ffffff82;border-radius:inherit;z-index:1;pointer-events:none}.portrait-shell img{width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:inherit;display:block;filter:saturate(.85);transition:transform .6s,filter .4s}.hero-art:hover .portrait-shell{transform:translateY(-7px) rotateY(-4deg)}.hero-art:hover .portrait-shell img{transform:scale(1.035);filter:saturate(1)}
+    .orbit-dot{position:absolute;width:11px;height:11px;border-radius:50%;background:var(--gold);box-shadow:0 0 18px #ffd180;top:27%;left:17%;animation:drift 4.6s ease-in-out infinite}.orbit-dot.dot-two{width:7px;height:7px;background:#8ee3ed;top:auto;left:auto;right:14%;bottom:26%;animation-delay:-2s}.float-note{position:absolute;z-index:3;padding:.7rem .9rem;border:1px solid #ffffff25;background:rgba(7,24,45,.78);backdrop-filter:blur(10px);border-radius:9px;color:#edf6fa;font-size:.75rem;letter-spacing:.02em;box-shadow:0 12px 30px #03102155;animation:float 5s ease-in-out infinite}.float-note b{display:block;color:var(--gold);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}.note-data{left:0;top:16%}.note-physics{right:-2%;top:37%;animation-delay:-1.5s}.note-ml{left:11%;bottom:10%;animation-delay:-3s}.hero-index{position:absolute;right:0;bottom:8%;font:italic 1rem var(--serif);color:#b7cad7;letter-spacing:.04em}.hero-index span{color:var(--gold)}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(8px,-11px)}}
+    .section{padding:100px 24px;scroll-margin-top:70px}.section-inner{max-width:var(--max);margin:auto}.section-kicker{color:var(--blue);font-size:.75rem;letter-spacing:.17em;text-transform:uppercase;font-weight:800;display:flex;align-items:center;gap:.65rem}.section-kicker:before{content:"";width:25px;height:2px;background:var(--gold)}h2{font-size:clamp(2.15rem,4vw,3.3rem);letter-spacing:-.045em;line-height:1.12;margin:.6rem 0 1.1rem;color:var(--night)}.lead{font-size:1.08rem;max-width:790px;color:#526174}.about-section{background:var(--paper)}.about-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:4.5rem;align-items:start}.about-aside{padding:1.8rem 0 0;border-top:1px solid var(--line);font:italic 1.38rem/1.5 var(--serif);color:#49627b}.about-main p{margin:.15rem 0 1.1rem;color:#526174}.credential-row{display:flex;gap:.65rem;flex-wrap:wrap;margin-top:1.7rem}.credential{font-size:.76rem;font-weight:700;color:#254b78;background:#e7eff4;border:1px solid #d8e4ea;padding:.4rem .7rem;border-radius:99px}
+    .research-section{background:#edf2f2}.section-heading-row{display:flex;justify-content:space-between;align-items:end;gap:2rem}.section-heading-row .lead{max-width:490px;margin-bottom:1.15rem;font-size:.96rem}.research-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.2rem}.research-card{position:relative;min-height:245px;background:#fff;padding:1.7rem 1.55rem 1.45rem;border:1px solid #dfe7e8;border-radius:8px;overflow:hidden;transition:transform .25s,box-shadow .25s,border-color .25s}.research-card:hover,.research-card:focus-within{transform:translateY(-7px);box-shadow:0 18px 40px #18395418;border-color:#bad8df}.research-card:after{content:"";position:absolute;width:120px;height:120px;border:1px solid #dbeaec;border-radius:50%;right:-45px;bottom:-57px;transition:transform .4s}.research-card:hover:after{transform:scale(1.35)}.card-index{font:italic 1rem var(--serif);color:#c2883d}.research-card h3{font-size:1.16rem;line-height:1.3;color:var(--night);margin:.7rem 0 .55rem}.research-card p{font-size:.91rem;line-height:1.65;color:var(--muted);margin:0;max-width:320px}.topic{display:inline-block;margin-top:1.1rem;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;color:#4e7893;font-weight:800}
+    .method-strip{margin-top:1.25rem;background:var(--night);color:#eff5f6;border-radius:8px;padding:1.3rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem}.method-strip p{margin:0;color:#d0dce6;font-size:.92rem}.method-strip strong{color:#8ddce5;white-space:nowrap}
+    .mentoring-section{background:#fff}.mentoring-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;margin-top:2.1rem}.mentoring-copy p{color:#526174}.quote{margin:1.7rem 0 0;padding:1.1rem 1.3rem;border-left:3px solid var(--gold);background:#faf6ee;color:#334a62;font:italic 1.16rem/1.5 var(--serif)}.support-panel{background:#f0f5f4;border-radius:8px;padding:1.65rem}.support-panel h3{margin:0 0 1rem;color:var(--night);font-size:1.1rem}.support-list{list-style:none;padding:0;margin:0;display:grid;gap:.72rem}.support-list li{display:flex;gap:.72rem;color:#536477;font-size:.91rem}.support-list li:before{content:"↗";color:#bd8a43;font-weight:800}
+    .initiatives-section{background:#f1f0ea}.initiatives-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}.initiative-card{background:#fff;display:flex;align-items:center;gap:1.4rem;padding:1.6rem;border-radius:8px;border:1px solid #e5e1d6;text-decoration:none;transition:transform .25s,box-shadow .25s}.initiative-card:hover{transform:translateY(-5px);box-shadow:0 16px 34px #182c4018}.initiative-card img{width:78px;height:78px;object-fit:contain;flex:none}.initiative-card h3{margin:0 0 .4rem;font-size:1.15rem;color:var(--night)}.initiative-card p{margin:0;color:#617082;font-size:.88rem;line-height:1.55}.visit-link{display:inline-block;margin-top:.7rem;color:var(--blue);font-size:.78rem;font-weight:800}
+    .journey-section{background:var(--paper)}.journey-layout{display:grid;grid-template-columns:.68fr 1.32fr;gap:4rem}.journey-intro p{max-width:350px;color:#5e6b7b}.timeline{border-left:1px solid #b8ccd4;padding-left:1.45rem}.timeline-item{position:relative;padding:0 0 1.8rem}.timeline-item:last-child{padding-bottom:0}.timeline-item:before{content:"";position:absolute;left:-1.78rem;top:.45rem;width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px var(--paper),0 0 0 5px #b8ccd4}.timeline-year{font-size:.72rem;letter-spacing:.13em;color:#507b91;font-weight:800;text-transform:uppercase}.timeline-item h3{font-size:1.13rem;line-height:1.35;margin:.2rem 0;color:var(--night)}.timeline-item p{margin:0;color:#607082;font-size:.89rem}
+    .contact-section{padding:70px 24px 90px;background:var(--night);color:#fff}.contact-card{max-width:var(--max);margin:auto;display:flex;align-items:center;justify-content:space-between;gap:2rem}.contact-card h2{color:#fff;margin:.5rem 0}.contact-card p{color:#bdccda;margin:.4rem 0}.contact-card .section-kicker{color:#95dbe5}.contact-actions{display:flex;flex-wrap:wrap;gap:.7rem}.contact-actions a{color:#fff;text-decoration:none;border:1px solid #ffffff46;border-radius:99px;padding:.65rem .9rem;font-size:.81rem;transition:background .2s,border-color .2s}.contact-actions a:hover{background:#ffffff12;border-color:var(--cyan)}.contact-email{color:#f4c675!important;text-decoration:none;font-weight:700}.footer{background:#061426;color:#90a4b8;padding:1.2rem 24px;font-size:.76rem}.footer-inner{max-width:var(--max);margin:auto;display:flex;justify-content:space-between;gap:1rem}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1)}.reveal.is-visible{opacity:1;transform:translateY(0)}
+    :focus-visible{outline:3px solid #f2bd63;outline-offset:4px}
+    @media(max-width:900px){.hero{min-height:auto;padding-top:125px}.hero-inner{grid-template-columns:1fr .84fr;gap:1rem}.hero-art{height:410px}.float-note{font-size:.68rem}.research-grid{grid-template-columns:1fr 1fr}.research-card:last-child{grid-column:span 2}.about-grid{gap:2.4rem}.journey-layout{gap:2.4rem}}
+    @media(max-width:680px){.topbar{height:66px;padding:0 5vw}.brand{font-size:.91rem}.brand-mark{width:31px;height:31px}.menu-toggle{display:block}.nav-links{display:none;position:absolute;left:0;right:0;top:66px;padding:1rem 5vw 1.2rem;background:rgba(8,24,45,.98);flex-direction:column;align-items:stretch;gap:.15rem;border-top:1px solid #ffffff18}.nav-links.open{display:flex}.nav-links a{padding:.7rem .15rem}.nav-links .nav-contact{border:0;padding:.7rem .15rem}.hero{padding:111px 6vw 48px}.hero-inner{grid-template-columns:1fr;gap:1rem}.hero-copy{order:1}.hero-art{order:0;height:320px;margin:0 -3vw -1rem}.portrait-shell{width:200px;height:255px}.orbit{width:265px;height:155px}.orbit-two{width:310px;height:195px}.orbit-three{width:250px;height:250px}.note-data{left:4%;top:12%}.note-physics{right:1%;top:31%}.note-ml{left:7%;bottom:5%}.hero-index{right:3%;bottom:5%}h1{font-size:clamp(3.1rem,15vw,4.6rem);margin:.85rem 0}.hero-intro{font-size:1rem}.hero-meta{font-size:.8rem}.hero-actions{margin-top:1.4rem}.button{padding:.75rem .9rem}.section{padding:70px 6vw}.about-grid,.mentoring-grid,.journey-layout{grid-template-columns:1fr;gap:1rem}.about-aside{padding-top:1rem;font-size:1.2rem}.section-heading-row{display:block}.section-heading-row .lead{margin-top:.6rem}.research-grid{grid-template-columns:1fr}.research-card,.research-card:last-child{grid-column:auto;min-height:0}.method-strip{align-items:flex-start;flex-direction:column;gap:.4rem}.initiatives-grid{grid-template-columns:1fr}.initiative-card{padding:1.1rem;gap:1rem}.initiative-card img{width:62px;height:62px}.contact-card{align-items:flex-start;flex-direction:column}.contact-section{padding:58px 6vw 65px}.footer-inner{flex-direction:column;gap:.2rem}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+  </style>
 </head>
-
 <body>
-
-    <nav>
-        <div class="name">Dr Megha Babu</div>
-        <div class="links">
-            <a href="#about">About</a>
-            <a href="#research">Research</a>
-            <a href="#mentoring">Mentoring</a>
-            <a href="#experience">Experience</a>
-            <a href="#contact">Contact</a>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="topbar" aria-label="Main navigation">
+    <a class="brand" href="#top" aria-label="Dr Megha Babu, home"><span class="brand-mark" aria-hidden="true">M</span><span>Dr Megha Babu</span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open navigation">Menu</button>
+    <div class="nav-links" id="nav-links">
+      <a href="#about">About</a><a href="#research">Research</a><a href="#mentoring">Mentoring</a><a href="#initiatives">Initiatives</a><a href="#journey">Journey</a><a class="nav-contact" href="#contact">Contact ↗</a>
+    </div>
+  </nav>
+  <main id="main">
+    <header class="hero" id="top">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <div class="eyebrow">Space science · Data · Discovery</div>
+          <h1>Megha Babu<span>researching our connected skies</span></h1>
+          <p class="hero-intro">I study how Earth’s near-space environment changes, bringing together satellite observations, ionospheric physics, signal processing and machine learning.</p>
+          <p class="hero-meta">PhD in Space Science and Technology · University of Trento &amp; Fondazione Bruno Kessler</p>
+          <div class="hero-actions"><a class="button button-primary" href="#research">Explore my research <span class="arrow">↘</span></a><a class="button button-quiet" href="assets/CV2.pdf" target="_blank" rel="noopener">View my CV <span class="arrow">↗</span></a></div>
         </div>
-    </nav>
-
-    <header class="hero">
-        <div class="hero-text">
-            <span class="tag">SPACE PHYSICS • MACHINE LEARNING • EARTH SYSTEM SCIENCE</span>
-            <h1>Dr Megha Babu</h1>
-            <h2>
-                Computational physicist investigating Earth–space interactions through
-                satellite observations, signal processing, and trustworthy machine learning.
-            </h2>
-
-            <a class="button button-primary" href="#research">Explore My Research</a>
-            <a class="button button-outline" href="assets/CV2.pdf" target="_blank">Download CV</a>
+        <div class="hero-art" aria-label="Portrait framed by animated orbital paths and research themes">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div><span class="orbit-dot"></span><span class="orbit-dot dot-two"></span>
+          <div class="portrait-shell"><img src="assets/profile.jpg" alt="Portrait of Dr Megha Babu" fetchpriority="high"></div>
+          <div class="float-note note-data"><b>01 / Observe</b>Satellite data</div><div class="float-note note-physics"><b>02 / Understand</b>Space physics</div><div class="float-note note-ml"><b>03 / Discover</b>Responsible AI</div>
+          <div class="hero-index"><span>01</span> — research &amp; perspective</div>
         </div>
-
-        <div class="profile-frame">
-            <img src="assets/profile.jpg" alt="Portrait of Dr Megha Babu">
-        </div>
+      </div>
     </header>
-
-    <section id="about">
-        <div class="section-label">About me</div>
-        <h3>Researching the dynamic connections between Earth and space</h3>
-
-        <p class="about-text">
-            I am a computational physicist and Earth–space interactions researcher.
-            I completed my PhD in Space Science and Technology at the University of
-            Trento and Fondazione Bruno Kessler, Italy. My work combines satellite
-            observations, ionospheric physics, deep learning, anomaly detection, and
-            rigorous statistical validation to investigate transient geophysical phenomena.
-        </p>
+    <section class="section about-section" id="about">
+      <div class="section-inner about-grid reveal">
+        <div><div class="section-kicker">About me</div><h2>From signals to scientific questions.</h2><div class="about-aside">“Good research begins with careful observation, honest uncertainty and questions that matter.”</div></div>
+        <div class="about-main"><p>I am a space science researcher working at the intersection of ionospheric physics, satellite observations and machine learning. I completed my PhD in Space Science and Technology at the University of Trento and Fondazione Bruno Kessler in Italy.</p><p>My research uses computational methods to study transient geophysical phenomena. I am especially interested in building analysis that is reproducible, statistically careful and grounded in the physics of the system.</p><div class="credential-row"><span class="credential">Ionospheric physics</span><span class="credential">Satellite observations</span><span class="credential">Anomaly detection</span><span class="credential">Statistical validation</span></div></div>
+      </div>
     </section>
-
-    <section id="research" class="highlight">
-        <div class="section-label">Research focus</div>
-        <h3>Current research directions</h3>
-
-        <div class="grid">
-            <div class="card">
-                <h4>Ionosphere–Earthquake Coupling</h4>
-                <p>
-                    Investigating possible statistical associations between ionospheric
-                    electric-field perturbations and seismic activity using satellite observations.
-                </p>
-            </div>
-
-            <div class="card">
-                <h4>Machine Learning for Geophysics</h4>
-                <p>
-                    Developing anomaly-detection and deep-learning models for multivariate
-                    time series and ionospheric spectrogram data.
-                </p>
-            </div>
-
-            <div class="card">
-                <h4>Space Weather & Solar-Terrestrial Physics</h4>
-                <p>
-                    Studying solar-wind disturbances, coronal mass ejections, and their
-                    impacts on Earth’s magnetosphere and upper atmosphere.
-                </p>
-            </div>
+    <section class="section research-section" id="research">
+      <div class="section-inner">
+        <div class="section-heading-row reveal"><div><div class="section-kicker">Research focus</div><h2>Three threads, one connected system.</h2></div><p class="lead">I combine physical context and data-driven methods to explore the complex links between the Sun, near-Earth space and our planet.</p></div>
+        <div class="research-grid">
+          <article class="research-card reveal"><span class="card-index">01</span><h3>Ionosphere–Earth coupling</h3><p>Studying possible statistical associations between ionospheric electric-field variations and seismic activity using satellite observations and careful controls.</p><span class="topic">Geospace · Seismo-ionosphere</span></article>
+          <article class="research-card reveal"><span class="card-index">02</span><h3>Machine learning for geophysics</h3><p>Exploring anomaly detection and deep-learning approaches for multivariate time series and spectral representations of ionospheric data.</p><span class="topic">Time series · Explainable analysis</span></article>
+          <article class="research-card reveal"><span class="card-index">03</span><h3>Space weather &amp; solar–terrestrial physics</h3><p>Investigating solar-wind structures and transient events, and their impacts on Earth’s magnetosphere and upper atmosphere.</p><span class="topic">Solar wind · Magnetosphere</span></article>
         </div>
+        <div class="method-strip reveal"><p>My approach connects <strong>physical questions</strong>, robust data analysis and transparent evaluation.</p><span>Observe → Model → Validate</span></div>
+      </div>
     </section>
-    <section id="mentoring">
-        <div class="section-label">Research, Mentoring & Outreach</div>
-        <h3>Making scientific thinking more accessible</h3>
-
-        <div class="mentoring-layout">
-            <div>
-                <p class="about-text">
-                    Alongside my research, I am increasingly interested in research education and mentoring. I believe
-                    that one of the biggest barriers for students entering research is not a lack of ability, but that
-                    research is often introduced too late and made unnecessarily difficult to understand.
-                </p>
-
-                <p class="about-text">
-                    Through Solvix Research Hub, I work to make scientific thinking and the research process more
-                    accessible to school students, university students, aspiring PhD researchers, and early-career
-                    researchers. My approach draws on my own ongoing journey through doctoral training, collaborations,
-                    publications, applications, and academic life.
-                </p>
-
-                <p class="about-text">
-                    Research should not feel like a secret language accessible only after entering a PhD. Scientific
-                    thinking can begin much earlier.
-                </p>
-            </div>
-
-            <aside class="mentoring-panel">
-                <h4>Areas I support</h4>
-                <ul class="mentoring-list">
-                    <li>Scientific thinking and research questions</li>
-                    <li>Understanding scientific literature</li>
-                    <li>Research methodology and academic writing</li>
-                    <li>Research presentations and PhD preparation</li>
-                    <li>Responsible use of AI and computational tools</li>
-                </ul>
-
-                <h4 style="margin-top: 24px;">For younger learners</h4>
-                <p>
-                    Curiosity, observation, questioning, evidence, experimentation, and learning how scientists think.
-                </p>
-            </aside>
-        </div>
+    <section class="section mentoring-section" id="mentoring">
+      <div class="section-inner reveal"><div class="section-kicker">Mentoring &amp; outreach</div><h2>Making research easier to enter.</h2><div class="mentoring-grid"><div class="mentoring-copy"><p>Research can feel like a closed world when students first encounter it. Through mentoring and outreach, I want to make the process more approachable: how to ask a useful question, read scientific work, and build the skills to investigate an idea.</p><p>I work with school learners, university students and early-career researchers, connecting curiosity with practical guidance informed by my own research journey.</p><blockquote class="quote">Curiosity is a starting point. Evidence helps it become discovery.</blockquote></div><aside class="support-panel"><h3>Topics I support</h3><ul class="support-list"><li>Scientific thinking and developing research questions</li><li>Reading papers and understanding research methods</li><li>Academic writing and research presentations</li><li>Preparing for PhD applications and interviews</li><li>Responsible use of AI and computational tools</li></ul></aside></div></div>
     </section>
-    <section id="experience">
-        <div class="section-label">Academic journey</div>
-        <h3>Research experience</h3>
-
-        <div class="timeline-item">
-            <h4>PhD in Space Science and Technology</h4>
-            <p>
-                University of Trento & Fondazione Bruno Kessler, Italy · 2022–2026<br>
-                Deep-learning-based anomaly detection in ionospheric observational data
-                and statistical association with seismic activity.
-            </p>
-        </div>
-
-        <div class="timeline-item">
-            <h4>Short-Term Scientific Mission, COST Action FuSe</h4>
-            <p>
-                Politehnica Bucharest, Romania · 2026<br>
-                Transformer-, diffusion-, and LoRA-based approaches for DEMETER ICE
-                electric-field data and seismo-ionospheric anomaly detection.
-            </p>
-        </div>
-
-        <div class="timeline-item">
-            <h4>Research Internship, National Observatory of Athens</h4>
-            <p>
-                Greece · 2025<br>
-                Collaborative research on ionospheric variability and multi-instrumental
-                approaches to seismo-ionospheric phenomena.
-            </p>
-        </div>
-
-        <div class="timeline-item">
-            <h4>Integrated MSc Physics</h4>
-            <p>
-                Amrita Vishwa Vidyapeetham, India · 2017–2022<br>
-                Master’s research at IIT Indore on coronal mass ejections, interplanetary
-                sheaths, corotating interaction regions, and geomagnetic effects.
-            </p>
-        </div>
+    <section class="section initiatives-section" id="initiatives">
+      <div class="section-inner reveal"><div class="section-kicker">Initiatives</div><h2>Learning and research, made more accessible.</h2><p class="lead">Alongside my research, I am building education and research-guidance initiatives for curious learners and aspiring researchers.</p><div class="initiatives-grid">
+        <a class="initiative-card" href="https://solvixlearning.com" target="_blank" rel="noopener"><img src="assets/solvix-learning-logo.png" alt=""><div><h3>Solvix Learning</h3><p>Science, mathematics, astronomy and research learning designed to make complex ideas more approachable.</p><span class="visit-link">Visit Solvix Learning ↗</span></div></a>
+        <a class="initiative-card" href="https://researchhub.solvixlearning.com" target="_blank" rel="noopener"><img src="assets/research-hub-logo.png" alt=""><div><h3>Solvix Research Hub</h3><p>Research guidance, scientific writing and PhD preparation for students and early-career researchers.</p><span class="visit-link">Visit Solvix Research Hub ↗</span></div></a>
+      </div></div>
     </section>
-
-    <section id="contact">
-        <div class="contact-box">
-            <div class="section-label" style="color:#8de4ff">Get in touch</div>
-            <h3>Let’s connect for research and collaboration</h3>
-            <p>
-                <a href="mailto:meghababu.kaniyath@gmail.com">
-                    meghababu.kaniyath@gmail.com
-                </a>
-            </p>
-
-            <!-- Replace # with your own profile links -->
-            <p>
-                <a href="https://www.linkedin.com/in/dr-megha-babu-a464a41b1/">LinkedIn</a> &nbsp; | &nbsp;
-                <a href="https://scholar.google.com/citations?user=AJQlIiYAAAAJ">Google Scholar</a> &nbsp; | &nbsp;
-                <a href="https://orcid.org/0000-0001-6337-768X">ORCID</a> &nbsp; | &nbsp;
-                <a href="https://github.com/Meghababu99">GitHub</a>
-            </p>
-        </div>
+    <section class="section journey-section" id="journey">
+      <div class="section-inner journey-layout reveal"><div class="journey-intro"><div class="section-kicker">Academic journey</div><h2>Learning across disciplines.</h2><p>My path has taken me from solar–terrestrial physics to satellite-based ionospheric research and computational methods.</p><a class="button button-primary" href="assets/CV2.pdf" target="_blank" rel="noopener">Full academic CV <span class="arrow">↗</span></a></div><div class="timeline">
+        <article class="timeline-item"><span class="timeline-year">2022–2026</span><h3>PhD in Space Science and Technology</h3><p>University of Trento &amp; Fondazione Bruno Kessler, Italy · Deep-learning-based anomaly detection in ionospheric observations and statistical association with seismic activity.</p></article>
+        <article class="timeline-item"><span class="timeline-year">2026</span><h3>Short-Term Scientific Mission · COST Action FuSe</h3><p>Politehnica Bucharest, Romania · Methodological work on transformer, diffusion and parameter-efficient approaches for DEMETER ICE electric-field data.</p></article>
+        <article class="timeline-item"><span class="timeline-year">2025</span><h3>Research internship · National Observatory of Athens</h3><p>Greece · Collaborative research on ionospheric variability and multi-instrumental approaches to seismo-ionospheric phenomena.</p></article>
+        <article class="timeline-item"><span class="timeline-year">2017–2022</span><h3>Integrated MSc in Physics</h3><p>Amrita Vishwa Vidyapeetham, India · Master’s research at IIT Indore on CMEs, interplanetary sheaths, corotating interaction regions and geomagnetic effects.</p></article>
+      </div></div>
     </section>
-
-    <footer>
-        © 2026 Dr Megha Babu · Space Physics & Machine Learning
-    </footer>
-
+    <section class="contact-section" id="contact"><div class="contact-card reveal"><div><div class="section-kicker">Get in touch</div><h2>Let’s talk research.</h2><p>For research, collaboration, mentoring and outreach enquiries.</p><a class="contact-email" href="mailto:meghababu.kaniyath@gmail.com">meghababu.kaniyath@gmail.com</a></div><div class="contact-actions"><a href="https://www.linkedin.com/in/dr-megha-babu-a464a41b1/" target="_blank" rel="noopener">LinkedIn ↗</a><a href="https://scholar.google.com/citations?user=AJQlIiYAAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a><a href="https://orcid.org/0000-0001-6337-768X" target="_blank" rel="noopener">ORCID ↗</a><a href="https://github.com/Meghababu99" target="_blank" rel="noopener">GitHub ↗</a></div></div></section>
+  </main>
+  <footer class="footer"><div class="footer-inner"><span>© 2026 Dr Megha Babu</span><span>Space science · Earth–space interactions · Research outreach</span></div></footer>
+  <script>
+    const nav=document.querySelector('.topbar');
+    const menu=document.querySelector('.menu-toggle');
+    const links=document.querySelector('.nav-links');
+    window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>24),{passive:true});
+    menu.addEventListener('click',()=>{const open=links.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Close navigation':'Open navigation');menu.textContent=open?'Close':'Menu'});
+    links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Open navigation');menu.textContent='Menu'}));
+    const revealItems=document.querySelectorAll('.reveal');
+    if('IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target)}}),{threshold:.12});revealItems.forEach(item=>observer.observe(item))}else{revealItems.forEach(item=>item.classList.add('is-visible'))}
+  </script>
 </body>
-
 </html>
